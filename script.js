@@ -39,6 +39,8 @@ window.addEventListener('scroll', function() {
 // Add loading animation for cake cards
 document.addEventListener('DOMContentLoaded', function() {
     const cakeCards = document.querySelectorAll('.cake-card');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const statItems = document.querySelectorAll('.stat-item');
     
     const observerOptions = {
         threshold: 0.1,
@@ -54,13 +56,96 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
+    // Animate cake cards
     cakeCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
+    
+    // Animate testimonial cards
+    testimonialCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(card);
+    });
+    
+    // Animate stats with counter effect
+    statItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+        
+        // Add counter animation for numbers
+        const numberElement = item.querySelector('h3');
+        const finalNumber = numberElement.textContent;
+        
+        const counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(numberElement, finalNumber);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counterObserver.observe(item);
+    });
 });
+
+// Counter animation function
+function animateCounter(element, finalText) {
+    const isRating = finalText.includes('/');
+    const isPercentage = finalText.includes('%');
+    const isNumber = finalText.includes('+');
+    
+    if (isRating) {
+        // Animate rating from 0.0 to 4.9
+        let current = 0;
+        const target = 4.9;
+        const increment = target / 30;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = current.toFixed(1) + '/5';
+        }, 50);
+    } else if (isPercentage) {
+        // Animate percentage from 0 to 98
+        let current = 0;
+        const target = 98;
+        const increment = target / 30;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.round(current) + '%';
+        }, 50);
+    } else if (isNumber) {
+        // Animate number from 0 to 500
+        let current = 0;
+        const target = 500;
+        const increment = target / 30;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.round(current) + '+';
+        }, 50);
+    }
+}
 
 // Mobile menu toggle (for future enhancement)
 function toggleMobileMenu() {
