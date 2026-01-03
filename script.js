@@ -130,9 +130,9 @@ function animateCounter(element, finalText) {
             element.textContent = Math.round(current) + '%';
         }, 50);
     } else if (isNumber) {
-        // Animate number from 0 to 500
+        // Animate number from 0 to 70
         let current = 0;
-        const target = 500;
+        const target = 70;
         const increment = target / 30;
         
         const timer = setInterval(() => {
@@ -625,4 +625,113 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
         console.error('Error initializing carousels:', error);
     }
+});
+
+// Sprinkle trail cursor effect
+document.addEventListener('DOMContentLoaded', function() {
+    const sprinkleColors = ['#FF69B4', '#FFD700', '#00CED1', '#FF6347', '#98FB98', '#DDA0DD', '#F0E68C', '#87CEEB'];
+    const sprinkleShapes = ['●', '▲', '■', '♦', '★', '✦', '◆', '▼'];
+    let sprinkles = [];
+    
+    // Create sprinkle container
+    const sprinkleContainer = document.createElement('div');
+    sprinkleContainer.className = 'sprinkle-container';
+    sprinkleContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 999;
+    `;
+    document.body.appendChild(sprinkleContainer);
+    
+    // Track mouse movement and create sprinkles
+    document.addEventListener('mousemove', function(e) {
+        createSprinkle(e.clientX, e.clientY);
+    });
+    
+    function createSprinkle(x, y) {
+        const sprinkle = document.createElement('div');
+        const color = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+        const shape = sprinkleShapes[Math.floor(Math.random() * sprinkleShapes.length)];
+        const size = Math.random() * 8 + 4; // 4-12px
+        const rotation = Math.random() * 360;
+        const velocityX = (Math.random() - 0.5) * 4;
+        const velocityY = Math.random() * 2 + 1;
+        
+        sprinkle.textContent = shape;
+        sprinkle.style.cssText = `
+            position: absolute;
+            left: ${x}px;
+            top: ${y}px;
+            color: ${color};
+            font-size: ${size}px;
+            transform: rotate(${rotation}deg);
+            pointer-events: none;
+            user-select: none;
+            z-index: 999;
+        `;
+        
+        sprinkleContainer.appendChild(sprinkle);
+        
+        // Store sprinkle data for animation
+        const sprinkleData = {
+            element: sprinkle,
+            x: x,
+            y: y,
+            velocityX: velocityX,
+            velocityY: velocityY,
+            rotation: rotation,
+            rotationSpeed: (Math.random() - 0.5) * 10,
+            life: 1.0,
+            decay: Math.random() * 0.02 + 0.01
+        };
+        
+        sprinkles.push(sprinkleData);
+        
+        // Remove old sprinkles to prevent memory issues
+        if (sprinkles.length > 100) {
+            const oldSprinkle = sprinkles.shift();
+            if (oldSprinkle.element.parentNode) {
+                oldSprinkle.element.parentNode.removeChild(oldSprinkle.element);
+            }
+        }
+    }
+    
+    // Animate sprinkles
+    function animateSprinkles() {
+        for (let i = sprinkles.length - 1; i >= 0; i--) {
+            const sprinkle = sprinkles[i];
+            
+            // Update position
+            sprinkle.x += sprinkle.velocityX;
+            sprinkle.y += sprinkle.velocityY;
+            sprinkle.velocityY += 0.1; // Gravity
+            sprinkle.rotation += sprinkle.rotationSpeed;
+            
+            // Update life
+            sprinkle.life -= sprinkle.decay;
+            
+            // Apply changes to element
+            sprinkle.element.style.left = sprinkle.x + 'px';
+            sprinkle.element.style.top = sprinkle.y + 'px';
+            sprinkle.element.style.transform = `rotate(${sprinkle.rotation}deg)`;
+            sprinkle.element.style.opacity = sprinkle.life;
+            
+            // Remove dead sprinkles
+            if (sprinkle.life <= 0 || sprinkle.y > window.innerHeight + 50) {
+                if (sprinkle.element.parentNode) {
+                    sprinkle.element.parentNode.removeChild(sprinkle.element);
+                }
+                sprinkles.splice(i, 1);
+            }
+        }
+        
+        requestAnimationFrame(animateSprinkles);
+    }
+    
+    // Start animation
+    animateSprinkles();
 });

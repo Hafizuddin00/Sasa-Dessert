@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +7,10 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E🍰%3C/text%3E%3C/svg%3E"), auto;
 }
 
 .container {
@@ -16,7 +19,24 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Custom Cake Cursors for Interactive Elements */
+a, button, .cta-button, .contact-btn, .order-cta-btn, .carousel-nav, .indicator, .testimonial-card, .cake-item, .social-link {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E🎂%3C/text%3E%3C/svg%3E"), pointer;
+}
+
+/* Special cursor for cake items */
+.cake-item {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E🧁%3C/text%3E%3C/svg%3E"), pointer;
+}
+
+/* Grab cursor for carousel */
+.carousel-container {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E🍰%3C/text%3E%3C/svg%3E"), grab;
+}
+
+.carousel-container:active {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E🍰%3C/text%3E%3C/svg%3E"), grabbing;
+}
 header {
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -37,6 +57,7 @@ nav {
     color: #8B4513;
     font-size: 2rem;
     margin: 0;
+    font-family: 'Pacifico', cursive;
 }
 
 .nav-links {
@@ -108,6 +129,190 @@ nav {
     100% {
         transform: translateY(-100px) translateX(100px) rotate(360deg);
         opacity: 0;
+    }
+}
+
+/* Cute Cake Stickers and Animations */
+.cake-stickers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; /* Behind all content */
+}
+
+.cake-sticker {
+    position: absolute;
+    font-size: 2rem;
+    animation: float-sticker 8s ease-in-out infinite;
+    opacity: 0.4; /* More transparent to stay in background */
+}
+
+.cake-sticker:nth-child(1) {
+    top: 15%;
+    left: 2%;
+    animation-delay: 0s;
+}
+
+.cake-sticker:nth-child(2) {
+    top: 45%;
+    left: 5%;
+    animation-delay: -2s;
+}
+
+.cake-sticker:nth-child(3) {
+    top: 75%;
+    left: 3%;
+    animation-delay: -4s;
+}
+
+.cake-sticker:nth-child(4) {
+    top: 20%;
+    right: 2%;
+    animation-delay: -6s;
+}
+
+.cake-sticker:nth-child(5) {
+    top: 50%;
+    right: 5%;
+    animation-delay: -1s;
+}
+
+.cake-sticker:nth-child(6) {
+    top: 80%;
+    right: 3%;
+    animation-delay: -3s;
+}
+
+@keyframes float-sticker {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-3deg);
+    }
+    75% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+/* Bouncing cake decorations */
+.bouncing-cakes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bouncing-cake {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: bounce-cake 3s ease-in-out infinite;
+    opacity: 0.4;
+    transition: none; /* Removed for smooth JS animation */
+}
+
+@keyframes bounce-cake {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-25px) scale(1.1);
+    }
+}
+
+/* Rotating cake slice decorations */
+.rotating-slices {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.rotating-slice {
+    position: absolute;
+    font-size: 1.8rem;
+    animation: rotate-slice 12s linear infinite;
+    opacity: 0.3;
+}
+
+.rotating-slice:nth-child(1) {
+    top: 30%;
+    left: 85%;
+    animation-delay: 0s;
+}
+
+.rotating-slice:nth-child(2) {
+    top: 50%;
+    left: 5%;
+    animation-delay: -4s;
+}
+
+.rotating-slice:nth-child(3) {
+    top: 75%;
+    left: 80%;
+    animation-delay: -8s;
+}
+
+@keyframes rotate-slice {
+    0% {
+        transform: rotate(0deg) translateX(30px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(30px) rotate(-360deg);
+    }
+}
+
+/* Pulsing heart decorations for love of cakes */
+.pulsing-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pulsing-heart {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #FFB6C1;
+    animation: pulse-heart 2s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.pulsing-heart:nth-child(1) {
+    top: 20%;
+    left: 75%;
+    animation-delay: 0s;
+}
+
+.pulsing-heart:nth-child(2) {
+    top: 55%;
+    left: 90%;
+    animation-delay: -1s;
+}
+
+.pulsing-heart:nth-child(3) {
+    top: 35%;
+    left: 2%;
+    animation-delay: -0.5s;
+}
+
+@keyframes pulse-heart {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.9;
     }
 }
 
@@ -264,7 +469,7 @@ nav {
 }
 
 .brand-logo {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem; /* Reduced from 2rem */
 }
 
 .logo-img {
@@ -276,8 +481,9 @@ nav {
 .hero-content h2 {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: #8B4513;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.4);
+    font-family: 'Pacifico', cursive;
 }
 
 .hero-content h3 {
@@ -367,6 +573,7 @@ nav {
     color: #333;
     position: relative;
     z-index: 2;
+    font-family: 'Pacifico', cursive;
 }
 
 .section-subtitle {
@@ -681,6 +888,7 @@ nav {
     color: #333;
     position: relative;
     z-index: 2;
+    font-family: 'Pacifico', cursive;
 }
 
 .about-section p {
@@ -723,6 +931,7 @@ nav {
     color: #333;
     position: relative;
     z-index: 2;
+    font-family: 'Pacifico', cursive;
 }
 
 .testimonials-grid {
@@ -802,7 +1011,7 @@ nav {
     bottom: 0;
     background: rgba(139, 69, 19, 0.95);
     color: white;
-    padding: 2rem;
+    padding: 1.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -884,6 +1093,7 @@ nav {
     color: #333;
     position: relative;
     z-index: 2;
+    font-family: 'Pacifico', cursive;
 }
 
 .contact-info {
@@ -911,7 +1121,7 @@ footer {
     background: #333;
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0; /* Reduced from 2rem */
 }
 
 /* Responsive Design */
@@ -1043,6 +1253,11 @@ footer {
     
     .contact-info-detailed {
         grid-template-columns: 1fr;
+    }
+    
+    .contact-bottom-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .social-links {
@@ -1184,6 +1399,7 @@ html {
     color: #8B4513;
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    font-family: 'Pacifico', cursive;
 }
 
 .mission-statement p {
@@ -1195,6 +1411,8 @@ html {
 
 .team-section, .partners-section, .values-section {
     margin-bottom: 4rem;
+    position: relative;
+    z-index: 2; /* Above stickers */
 }
 
 .team-section h3, .partners-section h3, .values-section h3 {
@@ -1210,10 +1428,12 @@ html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    z-index: 2; /* Above stickers */
 }
 
 .team-carousel {
     overflow: hidden;
+    z-index: 2; /* Above stickers */
 }
 
 .team-wheel {
@@ -1239,6 +1459,8 @@ html {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s;
+    position: relative;
+    z-index: 2; /* Above stickers */
 }
 
 .team-member:hover {
@@ -1289,7 +1511,7 @@ html {
 
 .partner-card {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -1301,11 +1523,12 @@ html {
 }
 
 .partner-card img {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 10px;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+    object-fit: contain;
+    padding: 0.2rem;
 }
 
 .partner-card h4 {
@@ -1540,7 +1763,45 @@ html {
     line-height: 1.6;
 }
 
-/* Social Media Section */
+/* Contact Bottom Layout - Two Column */
+.contact-bottom-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.contact-info-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info-left .contact-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.contact-info-left .contact-item h3 {
+    color: #8B4513;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact-info-left .contact-item p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Social Media Section - Right Side */
 .social-media-section {
     text-align: center;
     background: white;
@@ -1549,12 +1810,14 @@ html {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     position: relative;
     z-index: 10;
+    height: fit-content;
 }
 
 .social-media-section h3 {
     color: #333;
     margin-bottom: 2rem;
     font-size: 2rem;
+    font-family: 'Pacifico', cursive;
 }
 
 .social-links {
@@ -1616,21 +1879,22 @@ html {
 /* Enhanced Footer */
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduced from 250px */
+    gap: 1.5rem; /* Reduced from 2rem */
+    margin-bottom: 1rem; /* Reduced from 2rem */
 }
 
 .footer-section h4 {
     color: #8B4513;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    font-size: 1rem; /* Reduced from default */
 }
 
 .footer-section p {
     color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    line-height: 1.4; /* Reduced from 1.6 */
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    font-size: 0.85rem; /* Smaller font */
 }
 
 .footer-section ul {
@@ -1638,13 +1902,14 @@ html {
 }
 
 .footer-section ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem; /* Reduced from 0.5rem */
 }
 
 .footer-section ul li a {
     color: #ccc;
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 0.85rem; /* Smaller font */
 }
 
 .footer-section ul li a:hover {
@@ -1653,40 +1918,41 @@ html {
 
 .footer-social {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.5rem; /* Reduced from 1rem */
+    margin-top: 0.5rem; /* Reduced from 1rem */
 }
 
 .footer-social a {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Reduced from 1.5rem */
     text-decoration: none;
     transition: transform 0.3s;
 }
 
 .footer-social a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1); /* Reduced from 1.2 */
 }
 
 .footer-social-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Reduced from 24px */
+    height: 20px; /* Reduced from 24px */
     object-fit: contain;
     transition: transform 0.3s;
 }
 
 .footer-social-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.1); /* Reduced from 1.2 */
 }
 
 .footer-bottom {
     border-top: 1px solid #555;
-    padding-top: 2rem;
+    padding-top: 1rem; /* Reduced from 2rem */
     text-align: center;
 }
 
 .footer-bottom p {
     color: #ccc;
     margin: 0;
+    font-size: 0.8rem; /* Smaller font */
 }
 /* Tablet responsive design */
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -1719,17 +1985,74 @@ html {
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.3rem; /* Reduced from 0.5rem */
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
 }
 
 .footer-logo-img {
-    width: 50px;
-    height: 50px;
+    width: 35px; /* Reduced from 50px */
+    height: 35px; /* Reduced from 50px */
     object-fit: contain;
 }
 
 .footer-logo h4 {
     margin: 0;
     color: #8B4513;
+    font-family: 'Pacifico', cursive;
+    font-size: 0.9rem; /* Smaller font */
+}
+/* Sprinkle Trail Effect */
+.sprinkle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Ensure cake stickers stay in background */
+.cake-stickers {
+    z-index: 1; /* Lower than sprinkles */
+}
+
+/* Sprinkle animations */
+@keyframes sprinkle-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Make sure sprinkles don't interfere with interactions */
+.sprinkle-container * {
+    pointer-events: none;
+    user-select: none;
+}
+/* Special styling for Mum's Heritage emblem */
+.mumheritage-card img {
+    width: 150px !important; /* Bigger than default 120px */
+    height: 150px !important; /* Bigger than default 120px */
+    padding: 0.1rem; /* Less padding for more space */
+    margin-bottom: 0.1rem; /* Reduced margin to compensate for larger image */
+}
+
+.mumheritage-card {
+    padding: 1.2rem 1.5rem; /* Adjusted padding to align h4 with other cards */
+}
+/* Special styling for WhatsApp emblem */
+.whatsapp-card img {
+    width: 150px !important; /* Bigger than default 120px */
+    height: 150px !important; /* Bigger than default 120px */
+    padding: 0.1rem; /* Less padding for more space */
+    margin-bottom: 0.1rem; /* Reduced margin to compensate for larger image */
+}
+
+.whatsapp-card {
+    padding: 1.2rem 1.5rem; /* Adjusted padding to align h4 with other cards */
 }
