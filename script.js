@@ -189,58 +189,58 @@ class InfiniteCarousel {
                 alt: "Kek 4 Darjat",
                 name: "Kek 4 Darjat",
                 badge: "Bestseller",
-                description: "Four layers of rich chocolate sponge with premium chocolate ganache, topped with chocolate shavings. A true chocolate lover's dream."
+                description: "A layered cake with four levels of flavour and texture, perfect for sharing or special cravings."
             },
             {
                 image: "images/2.png",
                 alt: "Snowy Cheese",
                 name: "Snowy Cheese",
-                description: "Light vanilla sponge layered with creamy cheese frosting and dusted with powdered sugar for that perfect snowy appearance."
+                description: "Light and fluffy cake topped with smooth cheese and a snowy finish that melts in your mouth."
             },
             {
                 image: "images/3.png",
                 alt: "Pandan Cheese",
                 name: "Pandan Cheese",
                 badge: "Local Favorite",
-                description: "Traditional Malaysian pandan-flavored sponge with rich cheese frosting. A perfect blend of local flavors and modern techniques."
+                description: "Soft pandan cake with a fragrant aroma, layered with creamy cheese for a balanced sweet and savoury taste."
             },
             {
                 image: "images/4.png",
                 alt: "Choc Cheese Parut",
                 name: "Choc Cheese Parut",
-                description: "Chocolate sponge with cream cheese frosting, topped with grated chocolate for extra texture and flavor intensity."
+                description: "Rich chocolate cake covered with grated cheese, combining deep cocoa flavour with a savoury twist."
             },
             {
                 image: "images/5.png",
                 alt: "Red Velvet Tornado",
                 name: "Red Velvet Tornado",
                 badge: "Signature",
-                description: "Our signature red velvet with a unique swirl design, layered with tangy cream cheese frosting and a hint of cocoa."
+                description: "Moist red velvet cake with a swirl of creamy topping, smooth, slightly tangy, and satisfying."
             },
             {
                 image: "images/6.png",
-                alt: "Classic Chocolate",
-                name: "Classic Chocolate",
-                description: "Rich, moist chocolate cake with smooth chocolate buttercream. Simple perfection that never goes out of style."
+                alt: "Chocolate",
+                name: "Chocolate",
+                description: "Classic chocolate cake that is soft, rich, and perfect for true chocolate lovers."
             },
             {
                 image: "images/7.png",
                 alt: "Cookies & Cream",
                 name: "Cookies & Cream",
-                description: "Vanilla sponge layered with cookies and cream filling, topped with crushed chocolate cookies for the ultimate indulgence."
+                description: "Creamy cake mixed with crunchy cookie bits for a sweet and playful flavour in every bite."
             },
             {
                 image: "images/8.png",
                 alt: "Choc Lotus Biscoff",
                 name: "Choc Lotus Biscoff",
                 badge: "Premium",
-                description: "Decadent chocolate cake with Lotus Biscoff spread and crushed biscuits. A modern twist on the beloved Belgian treat."
+                description: "Chocolate cake layered with Lotus Biscoff spread, giving a caramelised and indulgent taste."
             },
             {
                 image: "images/9.png",
                 alt: "Indulgent Cheese",
                 name: "Indulgent Cheese",
-                description: "Rich cheesecake-style sponge with multiple layers of cream cheese frosting. Pure indulgence in every bite."
+                description: "Extra creamy cheese cake made for those who love a rich, bold, and satisfying cheese flavour."
             }
         ];
         
@@ -294,13 +294,12 @@ class InfiniteCarousel {
             ${cake.badge ? `<div class="cake-badge">${cake.badge}</div>` : ''}
             <div class="cake-basic-info">
                 <h3>${cake.name}</h3>
-                <span class="price">RM 8.50</span>
             </div>
             <div class="cake-hover-description">
                 <h3>${cake.name}</h3>
                 <p>${cake.description}</p>
                 <div class="cake-details">
-                    <span class="serving">Serves 6-8 people</span>
+                    <span class="serving"></span>
                     <span class="price">RM 8.50</span>
                 </div>
             </div>
