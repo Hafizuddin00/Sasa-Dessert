@@ -1129,57 +1129,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        display: flex !important; /* Show nav links in mobile */
-        flex-direction: row !important;
-        gap: 0.5rem !important;
-        font-size: 0.8rem !important;
-        position: static !important; /* Remove fixed positioning */
-        background: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        width: auto !important;
-        height: auto !important;
-    }
-    
-    .nav-links li {
-        margin: 0 !important;
-    }
-    
-    .nav-links a {
-        font-size: 0.75rem !important;
-        padding: 0.3rem 0.5rem !important;
-        background: rgba(139, 69, 19, 0.1) !important;
-        border-radius: 15px !important;
-        color: #8B4513 !important;
-        text-decoration: none !important;
-        transition: all 0.3s !important;
-    }
-    
-    .nav-links a:hover {
-        background: #8B4513 !important;
-        color: white !important;
-    }
-    
-    /* Hide mobile menu toggle since we're showing links directly */
-    .mobile-menu-toggle {
-        display: none !important;
-    }
-    
-    /* Adjust nav layout for mobile */
-    nav {
-        padding: 0.8rem 1rem !important;
-        flex-wrap: wrap !important;
-        gap: 0.5rem !important;
-    }
-    
-    .logo {
-        flex: 1 !important;
-        min-width: 120px !important;
-    }
-    
-    .logo h1 {
-        font-size: 1.3rem !important;
+        display: none; /* Hide nav links on mobile - show via hamburger menu */
     }
     
     .hero-content h2 {
@@ -1527,13 +1477,65 @@ footer {
     }
 }
 
-/* Mobile Menu Enhancement - Disabled since showing direct links */
+/* Mobile Menu Enhancement */
 @media (max-width: 768px) {
-    /* Mobile menu styles are now handled in the main responsive section above */
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    .nav-links.mobile-active {
+        left: 0;
+        display: flex; /* Show when active */
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 1rem;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+        color: #8B4513;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+    }
+    
+    nav {
+        padding: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
 }
 
 .mobile-menu-toggle {
-    display: none; /* Always hidden since we show direct links */
+    display: none; /* Hidden on desktop, shown on mobile via media query */
 }
 
 /* Smooth scrolling */
