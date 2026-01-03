@@ -1153,11 +1153,9 @@ footer {
     }
     
     .carousel-container {
-        padding: 0 60px !important; /* Add padding back */
+        padding: 0 40px !important; /* Container padding for navigation buttons */
         text-align: center;
         overflow: hidden;
-        max-width: 400px !important; /* Make carousel section smaller */
-        margin: 0 auto !important; /* Center the smaller carousel */
     }
     
     .cakes-carousel {
@@ -1167,18 +1165,19 @@ footer {
     }
     
     .cake-wheel {
-        gap: 1rem !important; /* Add gap back */
+        gap: 2rem !important; /* Gap between cake items */
         justify-content: flex-start;
     }
     
     .cake-item {
-        flex: 0 0 280px !important; /* Fixed width for single cake view */
-        width: 280px !important;
+        flex: 0 0 250px !important; /* Fixed width, allows scrolling between items */
+        width: 250px !important;
         height: 350px;
         margin: 0 !important;
         display: flex;
         flex-direction: column;
         align-items: center;
+        scroll-snap-align: center !important; /* Snap to center when scrolling */
     }
     
     .cake-item img {
@@ -1186,6 +1185,12 @@ footer {
         height: 60% !important;
         object-fit: cover !important;
         object-position: center !important;
+    }
+    
+    /* Enable smooth scrolling and snap behavior */
+    .cakes-carousel {
+        scroll-behavior: smooth !important;
+        scroll-snap-type: x mandatory !important;
     }
     
     .carousel-nav {
