@@ -180,3 +180,450 @@ document.querySelectorAll('.cake-card').forEach(card => {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
+// Smooth Infinite Carousel Implementation
+class InfiniteCarousel {
+    constructor() {
+        this.cakeData = [
+            {
+                image: "images/1.png",
+                alt: "Kek 4 Darjat",
+                name: "Kek 4 Darjat",
+                badge: "Bestseller",
+                description: "Four layers of rich chocolate sponge with premium chocolate ganache, topped with chocolate shavings. A true chocolate lover's dream."
+            },
+            {
+                image: "images/2.png",
+                alt: "Snowy Cheese",
+                name: "Snowy Cheese",
+                description: "Light vanilla sponge layered with creamy cheese frosting and dusted with powdered sugar for that perfect snowy appearance."
+            },
+            {
+                image: "images/3.png",
+                alt: "Pandan Cheese",
+                name: "Pandan Cheese",
+                badge: "Local Favorite",
+                description: "Traditional Malaysian pandan-flavored sponge with rich cheese frosting. A perfect blend of local flavors and modern techniques."
+            },
+            {
+                image: "images/4.png",
+                alt: "Choc Cheese Parut",
+                name: "Choc Cheese Parut",
+                description: "Chocolate sponge with cream cheese frosting, topped with grated chocolate for extra texture and flavor intensity."
+            },
+            {
+                image: "images/5.png",
+                alt: "Red Velvet Tornado",
+                name: "Red Velvet Tornado",
+                badge: "Signature",
+                description: "Our signature red velvet with a unique swirl design, layered with tangy cream cheese frosting and a hint of cocoa."
+            },
+            {
+                image: "images/6.png",
+                alt: "Classic Chocolate",
+                name: "Classic Chocolate",
+                description: "Rich, moist chocolate cake with smooth chocolate buttercream. Simple perfection that never goes out of style."
+            },
+            {
+                image: "images/7.png",
+                alt: "Cookies & Cream",
+                name: "Cookies & Cream",
+                description: "Vanilla sponge layered with cookies and cream filling, topped with crushed chocolate cookies for the ultimate indulgence."
+            },
+            {
+                image: "images/8.png",
+                alt: "Choc Lotus Biscoff",
+                name: "Choc Lotus Biscoff",
+                badge: "Premium",
+                description: "Decadent chocolate cake with Lotus Biscoff spread and crushed biscuits. A modern twist on the beloved Belgian treat."
+            },
+            {
+                image: "images/9.png",
+                alt: "Indulgent Cheese",
+                name: "Indulgent Cheese",
+                description: "Rich cheesecake-style sponge with multiple layers of cream cheese frosting. Pure indulgence in every bite."
+            }
+        ];
+        
+        this.currentIndex = 0;
+        this.slideWidth = 332; // 300px + 32px gap
+        this.isTransitioning = false;
+        this.autoScrollInterval = null;
+        this.carousel = null;
+        this.totalSlides = this.cakeData.length;
+        
+        this.init();
+    }
+    
+    init() {
+        this.carousel = document.getElementById('cakeWheel');
+        if (!this.carousel) {
+            console.warn('Cake carousel element not found');
+            return;
+        }
+        
+        this.createCarouselItems();
+        this.setupEventListeners();
+        this.startAutoScroll();
+        this.updateResponsiveValues();
+    }
+    
+    createCarouselItems() {
+        if (!this.carousel) return;
+        
+        // Create triple set for smooth infinite scroll
+        const allItems = [...this.cakeData, ...this.cakeData, ...this.cakeData];
+        
+        this.carousel.innerHTML = '';
+        
+        allItems.forEach((cake) => {
+            const cakeElement = this.createCakeElement(cake);
+            this.carousel.appendChild(cakeElement);
+        });
+        
+        // Start at the middle set
+        this.currentIndex = this.totalSlides;
+        this.updateCarouselPosition(false);
+    }
+    
+    createCakeElement(cake) {
+        const cakeItem = document.createElement('div');
+        cakeItem.className = 'cake-item';
+        
+        cakeItem.innerHTML = `
+            <img src="${cake.image}" alt="${cake.alt}" onerror="this.style.display='none'">
+            ${cake.badge ? `<div class="cake-badge">${cake.badge}</div>` : ''}
+            <div class="cake-basic-info">
+                <h3>${cake.name}</h3>
+                <span class="price">RM 8.50</span>
+            </div>
+            <div class="cake-hover-description">
+                <h3>${cake.name}</h3>
+                <p>${cake.description}</p>
+                <div class="cake-details">
+                    <span class="serving">Serves 6-8 people</span>
+                    <span class="price">RM 8.50</span>
+                </div>
+            </div>
+        `;
+        
+        return cakeItem;
+    }
+    
+    updateCarouselPosition(animate = true) {
+        if (!this.carousel) return;
+        
+        if (animate) {
+            this.carousel.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        } else {
+            this.carousel.style.transition = 'none';
+        }
+        
+        const translateX = -this.currentIndex * this.slideWidth;
+        this.carousel.style.transform = `translateX(${translateX}px)`;
+    }
+    
+    scrollCarousel(direction) {
+        if (this.isTransitioning) return;
+        
+        this.isTransitioning = true;
+        this.currentIndex += direction;
+        
+        this.updateCarouselPosition(true);
+        this.updateIndicators();
+        
+        // Handle infinite loop reset
+        setTimeout(() => {
+            if (this.currentIndex >= this.totalSlides * 2) {
+                this.currentIndex = this.totalSlides;
+                this.updateCarouselPosition(false);
+            } else if (this.currentIndex < this.totalSlides) {
+                this.currentIndex = this.totalSlides * 2 - 1;
+                this.updateCarouselPosition(false);
+            }
+            this.isTransitioning = false;
+        }, 600);
+    }
+    
+    scrollToSlide(slideIndex) {
+        if (this.isTransitioning) return;
+        
+        this.currentIndex = this.totalSlides + slideIndex;
+        this.updateCarouselPosition(true);
+        this.updateIndicators();
+    }
+    
+    updateIndicators() {
+        const indicators = document.querySelectorAll('.indicator');
+        if (indicators.length === 0) return;
+        
+        const realIndex = this.currentIndex % this.totalSlides;
+        
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === realIndex);
+        });
+    }
+    
+    updateResponsiveValues() {
+        const isMobile = window.innerWidth <= 768;
+        this.slideWidth = isMobile ? 282 : 332; // Adjust for mobile gap
+    }
+    
+    startAutoScroll() {
+        this.stopAutoScroll();
+        this.autoScrollInterval = setInterval(() => {
+            this.scrollCarousel(1);
+        }, 3000);
+    }
+    
+    stopAutoScroll() {
+        if (this.autoScrollInterval) {
+            clearInterval(this.autoScrollInterval);
+            this.autoScrollInterval = null;
+        }
+    }
+    
+    setupEventListeners() {
+        const container = document.querySelector('.carousel-container');
+        if (!container) {
+            console.warn('Carousel container not found');
+            return;
+        }
+        
+        // Mouse wheel
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            this.scrollCarousel(e.deltaY > 0 ? 1 : -1);
+        }, { passive: false });
+        
+        // Auto-scroll pause on hover
+        container.addEventListener('mouseenter', () => this.stopAutoScroll());
+        container.addEventListener('mouseleave', () => this.startAutoScroll());
+        
+        // Touch/swipe support
+        let startX = 0;
+        let isDragging = false;
+        
+        container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            this.stopAutoScroll();
+        });
+        
+        container.addEventListener('touchmove', (e) => {
+            if (isDragging) e.preventDefault();
+        });
+        
+        container.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                this.scrollCarousel(diffX > 0 ? 1 : -1);
+            }
+            
+            isDragging = false;
+            this.startAutoScroll();
+        });
+        
+        // Mouse drag support
+        let mouseStartX = 0;
+        let isMouseDragging = false;
+        
+        container.addEventListener('mousedown', (e) => {
+            mouseStartX = e.clientX;
+            isMouseDragging = true;
+            this.stopAutoScroll();
+            container.style.cursor = 'grabbing';
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (isMouseDragging) e.preventDefault();
+        });
+        
+        document.addEventListener('mouseup', (e) => {
+            if (!isMouseDragging) return;
+            
+            const endX = e.clientX;
+            const diffX = mouseStartX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                this.scrollCarousel(diffX > 0 ? 1 : -1);
+            }
+            
+            isMouseDragging = false;
+            container.style.cursor = 'grab';
+            this.startAutoScroll();
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.scrollCarousel(-1);
+            } else if (e.key === 'ArrowRight') {
+                this.scrollCarousel(1);
+            }
+        });
+        
+        // Window resize
+        window.addEventListener('resize', () => {
+            this.updateResponsiveValues();
+            this.updateCarouselPosition(false);
+        });
+    }
+}
+
+// Global functions for button clicks
+function scrollCarousel(direction) {
+    if (window.carouselInstance) {
+        window.carouselInstance.scrollCarousel(direction);
+    }
+}
+
+function scrollToSlide(slideIndex) {
+    if (window.carouselInstance) {
+        window.carouselInstance.scrollToSlide(slideIndex);
+    }
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    window.carouselInstance = new InfiniteCarousel();
+});
+// Team Carousel Implementation
+class TeamCarousel {
+    constructor() {
+        this.teamData = [
+            {
+                image: "images/Picture1.jpg",
+                name: "Muhammad Daniel Haikal",
+                role: "Manager"
+            },
+            {
+                image: "images/Picture2.jpg",
+                name: "Nur Sahira Nabilah",
+                role: "Assistant Manager"
+            },
+            {
+                image: "images/Picture3.png",
+                name: "Muhammad Hafizuddin",
+                role: "Finance Manager"
+            },
+            {
+                image: "images/Picture4.jpg",
+                name: "Mohamad Loqmanul Hakim",
+                role: "Operating Manager"
+            },
+            {
+                image: "images/Picture5.jpg",
+                name: "Sarah Aisyah",
+                role: "Marketing Manager"
+            },
+            {
+                image: "images/Picture6.jpg",
+                name: "Nurfathiah Atiqah",
+                role: "Advertising Manager"
+            },
+            {
+                image: "images/Picture7.jpg",
+                name: "Nur Alia Adriana",
+                role: "Customer Service"
+            },
+            {
+                image: "images/Picture8.png",
+                name: "Mohammed Umair",
+                role: "Customer Service Manager"
+            },
+            {
+                image: "images/Picture9.png",
+                name: "Farith Shazry",
+                role: "Assistant Sales Manager"
+            },
+            {
+                image: "images/Picture10.jpg",
+                name: "Muhammad Amirul Amsyar",
+                role: "Sales Manager"
+            },
+            {
+                image: "images/Picture11.png",
+                name: "Abdullah Edhah Saleh",
+                role: "Sales"
+            }
+        ];
+        
+        this.carousel = null;
+        this.totalSlides = this.teamData.length;
+        
+        this.init();
+    }
+    
+    init() {
+        this.carousel = document.getElementById('teamWheel');
+        if (!this.carousel) {
+            console.warn('Team carousel element not found');
+            return;
+        }
+        
+        this.createTeamItems();
+        this.setupEventListeners();
+    }
+    
+    createTeamItems() {
+        if (!this.carousel) return;
+        
+        // Create multiple sets for seamless infinite scroll
+        const allItems = [...this.teamData, ...this.teamData, ...this.teamData];
+        
+        this.carousel.innerHTML = '';
+        
+        allItems.forEach((member) => {
+            const memberElement = this.createTeamElement(member);
+            this.carousel.appendChild(memberElement);
+        });
+    }
+    
+    createTeamElement(member) {
+        const teamMember = document.createElement('div');
+        teamMember.className = 'team-member';
+        
+        teamMember.innerHTML = `
+            <img src="${member.image}" alt="${member.name}" onerror="this.style.display='none'">
+            <h4>${member.name}</h4>
+            <p class="role">${member.role}</p>
+        `;
+        
+        return teamMember;
+    }
+    
+    setupEventListeners() {
+        const container = document.querySelector('.team-carousel-container');
+        if (!container) {
+            console.warn('Team carousel container not found');
+            return;
+        }
+        
+        // Pause animation on hover
+        container.addEventListener('mouseenter', () => {
+            if (this.carousel) {
+                this.carousel.style.animationPlayState = 'paused';
+            }
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            if (this.carousel) {
+                this.carousel.style.animationPlayState = 'running';
+            }
+        });
+    }
+}
+
+// Initialize carousels when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        window.carouselInstance = new InfiniteCarousel();
+        window.teamCarouselInstance = new TeamCarousel();
+    } catch (error) {
+        console.error('Error initializing carousels:', error);
+    }
+});
