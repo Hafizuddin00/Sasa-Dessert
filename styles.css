@@ -1154,19 +1154,26 @@ footer {
     
     .carousel-container {
         padding: 0 40px;
+        text-align: center; /* Center align the container */
     }
     
     .cake-wheel {
         gap: 1rem;
+        justify-content: center; /* Center the items */
     }
     
     .cake-item {
         flex: 0 0 250px;
         height: 350px;
         margin: 0 auto; /* Center the cake items */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content within item */
     }
     
     .cake-item img {
+        width: 100%;
+        height: 60%;
         object-fit: cover;
         object-position: center; /* Center the image content */
     }
@@ -1199,6 +1206,28 @@ footer {
     
     .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .testimonial-card {
+        height: 250px; /* Fixed height for mobile */
+        padding: 0; /* Remove padding to let image fill */
+        overflow: hidden;
+    }
+    
+    .customer-photo {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    .customer-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Fill the entire box */
+        object-position: center; /* Center the image */
+        border-radius: 20px;
     }
     
     .feedback-stats {
@@ -1251,52 +1280,70 @@ footer {
     
     .quick-contact {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-btn {
+        padding: 1.2rem;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .contact-icon {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+    
+    .contact-bottom-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-info-left {
+        order: 1; /* Keep contact info first */
+    }
+    
+    .social-media-section {
+        order: 2; /* Social media second */
+        padding: 1.5rem;
+    }
+    
+    .social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .social-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .contact-info-detailed {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .form-row {
         grid-template-columns: 1fr;
     }
     
-    .contact-info-detailed {
-        grid-template-columns: 1fr;
+    .order-cta-section {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
     }
     
-    .contact-bottom-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem; /* Reduced gap for mobile */
+    .order-cta-section h3 {
+        font-size: 1.4rem;
     }
     
-    .contact-info-left {
-        order: 2; /* Move contact info below social media */
-    }
-    
-    .social-media-section {
-        order: 1; /* Move social media to top */
-        padding: 2rem 1rem; /* Reduced padding for mobile */
-    }
-    
-    .contact-btn {
-        padding: 1.5rem; /* Reduced padding for mobile */
-        min-height: 100px; /* Reduced height for mobile */
-    }
-    
-    .contact-icon {
-        width: 28px; /* Slightly smaller icons */
-        height: 28px;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .ordering-info {
-        grid-template-columns: 1fr;
+    .order-cta-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
     }
     
     nav {
@@ -2115,4 +2162,13 @@ html {
     
     .contact-info-detailed {
         gap: 1rem; /* Reduced gap for mobile */
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .ordering-info {
+        grid-template-columns: 1fr;
     }
