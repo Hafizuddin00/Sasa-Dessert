@@ -1153,25 +1153,27 @@ footer {
     }
     
     .carousel-container {
-        padding: 0 10px !important; /* Minimal padding */
+        padding: 0 60px !important; /* Add padding back */
         text-align: center;
         overflow: hidden;
+        max-width: 400px !important; /* Make carousel section smaller */
+        margin: 0 auto !important; /* Center the smaller carousel */
     }
     
     .cakes-carousel {
         overflow: hidden;
         width: 100% !important;
+        border-radius: 20px;
     }
     
     .cake-wheel {
-        gap: 0 !important; /* No gap for single cake view */
+        gap: 1rem !important; /* Add gap back */
         justify-content: flex-start;
     }
     
     .cake-item {
-        flex: 0 0 100% !important; /* Each cake takes full width */
-        width: 100% !important;
-        max-width: none !important;
+        flex: 0 0 280px !important; /* Fixed width for single cake view */
+        width: 280px !important;
         height: 350px;
         margin: 0 !important;
         display: flex;
@@ -1180,11 +1182,10 @@ footer {
     }
     
     .cake-item img {
-        width: 90% !important;
+        width: 100% !important;
         height: 60% !important;
         object-fit: cover !important;
         object-position: center !important;
-        margin: 0 auto;
     }
     
     .carousel-nav {
@@ -2222,3 +2223,26 @@ html {
     .ordering-info {
         grid-template-columns: 1fr;
     }
+/* Desktop footer fix - ensure proper layout on larger screens */
+@media (min-width: 769px) {
+    .footer-content {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+        gap: 1.5rem !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
+    }
+    
+    .contact-bottom-layout {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 4rem !important;
+    }
+    
+    .social-links {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+}
