@@ -706,13 +706,28 @@ nav {
     bottom: 0;
     background: rgba(255, 182, 193, 0.95);
     color: #333;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem 2rem; /* More top padding to push content toward middle */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
     opacity: 0;
     transition: opacity 0.3s;
     text-align: center;
+}
+
+.cake-hover-description h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #333;
+    margin-top: 1.5rem; /* Additional top margin to move title toward middle */
+}
+
+.cake-hover-description p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    color: #333;
+    margin-top: 0.5rem; /* Small top margin for description */
 }
 
 .cake-item:hover .cake-hover-description {
@@ -723,24 +738,11 @@ nav {
     opacity: 0;
 }
 
-.cake-hover-description h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.cake-hover-description p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
 .cake-hover-description .cake-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
+    margin-top: auto; /* Push price details to bottom */
 }
 
 .cake-hover-description .serving {
@@ -1208,15 +1210,17 @@ footer {
     }
     
     .cake-hover-description {
-        padding: 1rem;
+        padding: 2rem 1rem 1rem 1rem !important; /* More top padding for mobile */
     }
     
     .cake-hover-description h3 {
-        font-size: 1.1rem;
+        font-size: 1.1rem !important;
+        margin-top: 1rem !important; /* Move title toward middle on mobile */
     }
     
     .cake-hover-description p {
-        font-size: 0.8rem;
+        font-size: 0.8rem !important;
+        margin-top: 0.3rem !important; /* Small spacing for mobile */
     }
     
     .testimonials-grid {
@@ -1293,7 +1297,8 @@ footer {
     }
     
     .partners-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr !important; /* 2x2 grid for mobile */
+        gap: 1rem !important;
     }
     
     .values-grid {
