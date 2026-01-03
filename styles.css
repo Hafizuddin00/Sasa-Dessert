@@ -1163,6 +1163,12 @@ footer {
     .cake-item {
         flex: 0 0 250px;
         height: 350px;
+        margin: 0 auto; /* Center the cake items */
+    }
+    
+    .cake-item img {
+        object-fit: cover;
+        object-position: center; /* Center the image content */
     }
     
     .carousel-nav {
@@ -1257,7 +1263,26 @@ footer {
     
     .contact-bottom-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem; /* Reduced gap for mobile */
+    }
+    
+    .contact-info-left {
+        order: 2; /* Move contact info below social media */
+    }
+    
+    .social-media-section {
+        order: 1; /* Move social media to top */
+        padding: 2rem 1rem; /* Reduced padding for mobile */
+    }
+    
+    .contact-btn {
+        padding: 1.5rem; /* Reduced padding for mobile */
+        min-height: 100px; /* Reduced height for mobile */
+    }
+    
+    .contact-icon {
+        width: 28px; /* Slightly smaller icons */
+        height: 28px;
     }
     
     .social-links {
@@ -1300,11 +1325,19 @@ footer {
     
     .testimonial-card {
         padding: 1.5rem;
+        height: 250px; /* Fixed height for mobile */
     }
     
     .customer-photo {
-        width: 60px;
-        height: 60px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .customer-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Fill the entire box */
+        object-position: center; /* Center the image */
     }
     
     .order-form-section {
@@ -2056,3 +2089,30 @@ html {
 .whatsapp-card {
     padding: 1.2rem 1.5rem; /* Adjusted padding to align h4 with other cards */
 }
+    /* Mobile order section improvements */
+    .order-cta-section {
+        padding: 2rem 1rem; /* Reduced padding for mobile */
+        margin-top: 2rem; /* Reduced margin */
+    }
+    
+    .order-cta-section h3 {
+        font-size: 1.5rem; /* Smaller heading for mobile */
+    }
+    
+    .order-cta-section p {
+        font-size: 1rem; /* Smaller text for mobile */
+    }
+    
+    .order-cta-btn {
+        padding: 12px 24px; /* Smaller button for mobile */
+        font-size: 1rem;
+    }
+    
+    /* Ensure all interactive elements are properly spaced */
+    .quick-contact {
+        gap: 1rem; /* Reduced gap for mobile */
+    }
+    
+    .contact-info-detailed {
+        gap: 1rem; /* Reduced gap for mobile */
+    }
