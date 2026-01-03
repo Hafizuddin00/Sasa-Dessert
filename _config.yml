@@ -1,0 +1,30 @@
+# GitHub Pages configuration for Sasa Dessert website
+title: "Sasa Dessert - Premium Cakes"
+description: "Delicious handcrafted cakes made with love, served with passion"
+baseurl: ""
+url: "https://yourusername.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .gitignore
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  cakes:
+    output: false
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
