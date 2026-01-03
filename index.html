@@ -10,6 +10,7 @@
     <header>
         <nav>
             <div class="logo">
+                <img src="images/Logo.png" alt="Sasa Dessert" class="nav-logo">
                 <h1>Sasa Dessert</h1>
             </div>
             <ul class="nav-links">
@@ -19,93 +20,76 @@
                 <li><a href="#feedback">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h2>Delicious Handcrafted Cakes</h2>
-                <p>Made with love, served with passion</p>
-                <a href="#cakes" class="cta-button">View Our Cakes</a>
+                <div class="brand-logo">
+                    <img src="images/Logo.png" alt="Sasa Dessert Logo" class="logo-img">
+                </div>
+                <h2>Sasa Dessert</h2>
+                <h3>Premium Handcrafted Cakes</h3>
+                <p>Made with love, served with passion. Experience the finest Malaysian cake artistry with our signature collection of 9 unique flavors.</p>
+                <div class="hero-buttons">
+                    <a href="#cakes" class="cta-button primary">View Our Cakes</a>
+                    <a href="#contact" class="cta-button secondary">Order Now</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <span class="feature-icon">🎂</span>
+                        <span>Fresh Daily</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🚚</span>
+                        <span>Free Delivery</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⭐</span>
+                        <span>Premium Quality</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="cakes" class="cakes-section">
             <div class="container">
                 <h2>Our Premium Cake Collection</h2>
-                <div class="cakes-grid">
-                    <div class="cake-card">
-                        <img src="images/chocolate-cake.jpg" alt="Chocolate Cake">
-                        <h3>Kek 4 Darjat</h3>
-                        <p>Decadent layers of moist chocolate sponge with rich chocolate ganache</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
+                <p class="section-subtitle">Scroll through our handcrafted selection of 9 unique cake flavors</p>
+                <p class="scroll-hint">🖱️ Use mouse wheel, drag, or arrow keys to navigate</p>
+                
+                <!-- Navigation arrows -->
+                <div class="carousel-container">
+                    <button class="carousel-nav prev" onclick="scrollCarousel(-1)">‹</button>
+                    <button class="carousel-nav next" onclick="scrollCarousel(1)">›</button>
+                    
+                    <div class="cakes-carousel">
+                        <div class="cake-wheel" id="cakeWheel">
+                            <!-- Cakes will be dynamically populated by JavaScript -->
+                        </div>
                     </div>
+                    
+                    <!-- Scroll indicators -->
+                    <div class="carousel-indicators">
+                        <div class="indicator active" onclick="scrollToSlide(0)"></div>
+                        <div class="indicator" onclick="scrollToSlide(1)"></div>
+                        <div class="indicator" onclick="scrollToSlide(2)"></div>
+                        <div class="indicator" onclick="scrollToSlide(3)"></div>
+                        <div class="indicator" onclick="scrollToSlide(4)"></div>
+                        <div class="indicator" onclick="scrollToSlide(5)"></div>
+                        <div class="indicator" onclick="scrollToSlide(6)"></div>
+                        <div class="indicator" onclick="scrollToSlide(7)"></div>
+                        <div class="indicator" onclick="scrollToSlide(8)"></div>
+                    </div>
+                </div>
 
-                    <div class="cake-card">
-                        <img src="images/vanilla-cake.jpg" alt="Vanilla Cake">
-                        <h3>Snowy Cheese</h3>
-                        <p>Light and fluffy vanilla sponge with creamy vanilla buttercream</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/strawberry-cake.jpg" alt="Strawberry Cake">
-                        <h3>Pandan Cheese</h3>
-                        <p>Delicate sponge layered with fresh strawberries and whipped cream</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/red-velvet.jpg" alt="Red Velvet Cake">
-                        <h3>Choc Cheese Parut</h3>
-                        <p>Velvety smooth red cake with tangy cream cheese frosting</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/lemon-cake.jpg" alt="Lemon Cake">
-                        <h3>Red Velvet Tornado</h3>
-                        <p>Bright and citrusy with lemon curd filling and lemon buttercream</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/carrot-cake.jpg" alt="Carrot Cake">
-                        <h3>Chocolate</h3>
-                        <p>Moist carrot cake with warm spices and cream cheese frosting</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/cheesecake.jpg" alt="Cheesecake">
-                        <h3>Cookies & Cream</h3>
-                        <p>Creamy and rich cheesecake with graham cracker crust</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/tiramisu.jpg" alt="Tiramisu Cake">
-                        <h3>Choc Lotus Biscoff</h3>
-                        <p>Coffee-soaked layers with mascarpone cream and cocoa dusting</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-
-                    <div class="cake-card">
-                        <img src="images/black-forest.jpg" alt="Black Forest Cake">
-                        <h3>Indulgent Cheese</h3>
-                        <p>Chocolate sponge with cherries, whipped cream, and chocolate shavings</p>
-                        <span class="price">RM 8.50</span>
-                        <button class="order-btn">Order Now</button>
-                    </div>
+                <!-- Call to Action for Ordering -->
+                <div class="order-cta-section">
+                    <h3>Ready to Order?</h3>
+                    <p>All our cakes are available for same-day delivery within Klang Valley. Use our online order form to place your order!</p>
+                    <a href="https://forms.gle/kSWggAfNjSCoh7nu9" target="_blank" class="order-cta-btn">Place Your Order</a>
                 </div>
             </div>
         </section>
@@ -113,7 +97,78 @@
         <section id="about" class="about-section">
             <div class="container">
                 <h2>About Sasa Dessert</h2>
-                <p>At Sasa Dessert, we believe every celebration deserves the perfect cake. Our master bakers use only the finest ingredients to create cakes that not only look stunning but taste absolutely divine. Each cake is handcrafted with attention to detail and made fresh to order.</p>
+                
+                <!-- Mission Statement -->
+                <div class="mission-statement">
+                    <h3>Our Mission</h3>
+                    <p>At Sasa Dessert, we believe every celebration deserves the perfect cake. Our mission is to create memorable moments through exceptional handcrafted cakes that bring joy to every occasion. We are committed to using only the finest ingredients and traditional baking techniques to deliver cakes that not only look stunning but taste absolutely divine.</p>
+                </div>
+
+                <!-- Team Members -->
+                <div class="team-section">
+                    <h3>Meet Our Team</h3>
+                    <div class="team-carousel-container">
+                        <div class="team-carousel">
+                            <div class="team-wheel" id="teamWheel">
+                                <!-- Team members will be dynamically populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration Partners -->
+                <div class="partners-section">
+                    <h3>Our Trusted Partners</h3>
+                    <div class="partners-grid">
+                        <div class="partner-card">
+                            <img src="images/partner-dairy.jpg" alt="Premium Dairy Supplier">
+                            <h4>Fresh Valley Dairy</h4>
+                            <p>Premium dairy products sourced locally for the freshest cream and cheese ingredients.</p>
+                        </div>
+                        <div class="partner-card">
+                            <img src="images/partner-organic.jpg" alt="Organic Ingredients">
+                            <h4>Green Harvest Organic</h4>
+                            <p>Certified organic flour, eggs, and natural flavorings for our health-conscious customers.</p>
+                        </div>
+                        <div class="partner-card">
+                            <img src="images/partner-delivery.jpg" alt="Delivery Service">
+                            <h4>Swift Delivery Network</h4>
+                            <p>Reliable same-day delivery service ensuring your cakes arrive fresh and on time.</p>
+                        </div>
+                        <div class="partner-card">
+                            <img src="images/partner-events.jpg" alt="Event Planning">
+                            <h4>Celebration Events Co.</h4>
+                            <p>Professional event planning services for weddings, birthdays, and corporate celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Values -->
+                <div class="values-section">
+                    <h3>Our Values</h3>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <span class="value-icon">🌟</span>
+                            <h4>Quality Excellence</h4>
+                            <p>We never compromise on ingredients or craftsmanship</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">❤️</span>
+                            <h4>Customer Love</h4>
+                            <p>Every customer is family, every order is personal</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🌱</span>
+                            <h4>Sustainability</h4>
+                            <p>Eco-friendly packaging and locally sourced ingredients</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🎨</span>
+                            <h4>Creativity</h4>
+                            <p>Innovative flavors and artistic presentation in every cake</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -213,20 +268,77 @@
 
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2>Contact Us</h2>
-                <div class="contact-info">
+                <h2>Contact & Order</h2>
+                <p class="section-subtitle">Ready to order? Get in touch with us through your preferred method</p>
+
+                <!-- Quick Contact Options -->
+                <div class="quick-contact">
+                    <a href="https://wa.me/60123456789" class="contact-btn whatsapp" target="_blank">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+60 18-578 8227</p>
+                        </div>
+                    </a>
+                    <a href="tel:+60123456789" class="contact-btn phone">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+60 18-578 8227</p>
+                        </div>
+                    </a>
+                    <a href="https://forms.gle/kSWggAfNjSCoh7nu9" class="contact-btn order-form" target="_blank">
+                        <span class="contact-icon">📝</span>
+                        <div>
+                            <h4>Order Form</h4>
+                            <p>Place Your Order</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-detailed">
                     <div class="contact-item">
-                        <h3>Phone</h3>
-                        <p>(555) 123-CAKE</p>
+                        <h3>📍 Location</h3>
+                        <p>Klang Valley, Malaysia<br>
+                        Free delivery within 15km radius</p>
                     </div>
                     <div class="contact-item">
-                        <h3>Email</h3>
-                        <p>orders@sasadessert.com</p>
+                        <h3>⏰ Operating Hours</h3>
+                        <p>Monday - Saturday: 8:00 AM - 8:00 PM<br>
+                        Sunday: 9:00 AM - 6:00 PM<br>
+                        <em>Orders accepted 24/7 online</em></p>
                     </div>
                     <div class="contact-item">
-                        <h3>Hours</h3>
-                        <p>Mon-Sat: 9AM-7PM<br>Sun: 10AM-5PM</p>
+                        <h3>🚚 Delivery Info</h3>
+                        <p>Same-day delivery available<br>
+                        Minimum 2 hours preparation time<br>
+                        Free delivery for orders above RM 50</p>
                     </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-media-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com/sasadessert" target="_blank" class="social-link facebook">
+                            <span class="social-icon">📘</span>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/sasadessert" target="_blank" class="social-link instagram">
+                            <span class="social-icon">📷</span>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://tiktok.com/@sasadessert" target="_blank" class="social-link tiktok">
+                            <span class="social-icon">🎵</span>
+                            <span>TikTok</span>
+                        </a>
+                        <a href="https://wa.me/60185788227" target="_blank" class="social-link whatsapp">
+                            <span class="social-icon">💬</span>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                    <p class="social-description">Stay updated with our latest creations, special offers, and behind-the-scenes content!</p>
                 </div>
             </div>
         </section>
@@ -234,7 +346,46 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Sasa Dessert. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/Logo.png" alt="Sasa Dessert" class="footer-logo-img">
+                        <h4>Sasa Dessert</h4>
+                    </div>
+                    <p>Premium handcrafted cakes made with love and served with passion.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/sasadessert" target="_blank">📘</a>
+                        <a href="https://instagram.com/sasadessert" target="_blank">📷</a>
+                        <a href="https://tiktok.com/@sasadessert" target="_blank">🎵</a>
+                        <a href="https://wa.me/60185788227" target="_blank">💬</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#cakes">Our Cakes</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#feedback">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📱 +60 18-5788227</p>
+                    <p>✉️ sasadessert@gmail.com</p>
+                    <p>📍 Sintok, Kedah, Malaysia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Business Hours</h4>
+                    <p>Mon-Sat: 8:00 AM - 8:00 PM</p>
+                    <p>Sunday: 9:00 AM - 6:00 PM</p>
+                    <p><em>Online orders 24/7</em></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sasa Dessert. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
