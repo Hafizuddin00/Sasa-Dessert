@@ -256,7 +256,10 @@ class InfiniteCarousel {
     
     init() {
         this.carousel = document.getElementById('cakeWheel');
-        if (!this.carousel) return;
+        if (!this.carousel) {
+            console.warn('Cake carousel element not found');
+            return;
+        }
         
         this.createCarouselItems();
         this.setupEventListeners();
@@ -265,13 +268,15 @@ class InfiniteCarousel {
     }
     
     createCarouselItems() {
+        if (!this.carousel) return;
+        
         // Create triple set for smooth infinite scroll
         const allItems = [...this.cakeData, ...this.cakeData, ...this.cakeData];
         
         this.carousel.innerHTML = '';
         
-        allItems.forEach((cake, index) => {
-            const cakeElement = this.createCakeElement(cake, index);
+        allItems.forEach((cake) => {
+            const cakeElement = this.createCakeElement(cake);
             this.carousel.appendChild(cakeElement);
         });
         
@@ -280,12 +285,12 @@ class InfiniteCarousel {
         this.updateCarouselPosition(false);
     }
     
-    createCakeElement(cake, index) {
+    createCakeElement(cake) {
         const cakeItem = document.createElement('div');
         cakeItem.className = 'cake-item';
         
         cakeItem.innerHTML = `
-            <img src="${cake.image}" alt="${cake.alt}">
+            <img src="${cake.image}" alt="${cake.alt}" onerror="this.style.display='none'">
             ${cake.badge ? `<div class="cake-badge">${cake.badge}</div>` : ''}
             <div class="cake-basic-info">
                 <h3>${cake.name}</h3>
@@ -349,6 +354,8 @@ class InfiniteCarousel {
     
     updateIndicators() {
         const indicators = document.querySelectorAll('.indicator');
+        if (indicators.length === 0) return;
+        
         const realIndex = this.currentIndex % this.totalSlides;
         
         indicators.forEach((indicator, index) => {
@@ -377,7 +384,10 @@ class InfiniteCarousel {
     
     setupEventListeners() {
         const container = document.querySelector('.carousel-container');
-        if (!container) return;
+        if (!container) {
+            console.warn('Carousel container not found');
+            return;
+        }
         
         // Mouse wheel
         container.addEventListener('wheel', (e) => {
@@ -550,30 +560,35 @@ class TeamCarousel {
     
     init() {
         this.carousel = document.getElementById('teamWheel');
-        if (!this.carousel) return;
+        if (!this.carousel) {
+            console.warn('Team carousel element not found');
+            return;
+        }
         
         this.createTeamItems();
         this.setupEventListeners();
     }
     
     createTeamItems() {
+        if (!this.carousel) return;
+        
         // Create multiple sets for seamless infinite scroll
         const allItems = [...this.teamData, ...this.teamData, ...this.teamData];
         
         this.carousel.innerHTML = '';
         
-        allItems.forEach((member, index) => {
-            const memberElement = this.createTeamElement(member, index);
+        allItems.forEach((member) => {
+            const memberElement = this.createTeamElement(member);
             this.carousel.appendChild(memberElement);
         });
     }
     
-    createTeamElement(member, index) {
+    createTeamElement(member) {
         const teamMember = document.createElement('div');
         teamMember.className = 'team-member';
         
         teamMember.innerHTML = `
-            <img src="${member.image}" alt="${member.name}">
+            <img src="${member.image}" alt="${member.name}" onerror="this.style.display='none'">
             <h4>${member.name}</h4>
             <p class="role">${member.role}</p>
         `;
@@ -581,82 +596,12 @@ class TeamCarousel {
         return teamMember;
     }
     
-    updateCarouselPosition(animate = true) {
-        if (!this.carousel) return;
-        
-        if (animate) {
-            this.carousel.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        } else {
-            this.carousel.style.transition = 'none';
-        }
-        
-        const translateX = -this.currentIndex * this.slideWidth;
-        this.carousel.style.transform = `translateX(${translateX}px)`;
-    }
-    
-    scrollCarousel(direction) {
-        if (this.isTransitioning) return;
-        
-        this.isTransitioning = true;
-        this.currentIndex += direction;
-        
-        this.updateCarouselPosition(true);
-        this.updateIndicators();
-        
-        // Handle infinite loop reset
-        setTimeout(() => {
-            if (this.currentIndex >= this.totalSlides * 2) {
-                this.currentIndex = this.totalSlides;
-                this.updateCarouselPosition(false);
-            } else if (this.currentIndex < this.totalSlides) {
-                this.currentIndex = this.totalSlides * 2 - 1;
-                this.updateCarouselPosition(false);
-            }
-            this.isTransitioning = false;
-        }, 600);
-    }
-    
-    scrollToSlide(slideIndex) {
-        if (this.isTransitioning) return;
-        
-        this.currentIndex = this.totalSlides + slideIndex;
-        this.updateCarouselPosition(true);
-        this.updateIndicators();
-    }
-    
-    updateIndicators() {
-        const indicators = document.querySelectorAll('.team-indicator');
-        const realIndex = this.currentIndex % this.totalSlides;
-        
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === realIndex);
-        });
-    }
-    
-    updateResponsiveValues() {
-        const isMobile = window.innerWidth <= 768;
-        this.slideWidth = isMobile ? 182 : 232; // Adjust for mobile gap
-    }
-    
-    startAutoScroll() {
-        this.stopAutoScroll();
-        this.autoScrollInterval = setInterval(() => {
-            if (!this.isTransitioning) {
-                this.scrollCarousel(1);
-            }
-        }, 2000); // Auto-scroll every 2 seconds
-    }
-    
-    stopAutoScroll() {
-        if (this.autoScrollInterval) {
-            clearInterval(this.autoScrollInterval);
-            this.autoScrollInterval = null;
-        }
-    }
-    
     setupEventListeners() {
         const container = document.querySelector('.team-carousel-container');
-        if (!container) return;
+        if (!container) {
+            console.warn('Team carousel container not found');
+            return;
+        }
         
         // Pause animation on hover
         container.addEventListener('mouseenter', () => {
@@ -673,19 +618,12 @@ class TeamCarousel {
     }
 }
 
-// Global functions for team carousel
-function scrollToTeamSlide(slideIndex) {
-    if (window.teamCarouselInstance) {
-        window.teamCarouselInstance.scrollToSlide(slideIndex);
-        // Restart auto-scroll after manual interaction
-        setTimeout(() => {
-            window.teamCarouselInstance.startAutoScroll();
-        }, 3000); // Resume after 3 seconds
-    }
-}
-
-// Initialize team carousel when DOM is loaded
+// Initialize carousels when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    window.teamCarouselInstance = new TeamCarousel();
+    try {
+        window.carouselInstance = new InfiniteCarousel();
+        window.teamCarouselInstance = new TeamCarousel();
+    } catch (error) {
+        console.error('Error initializing carousels:', error);
+    }
 });
-// Team carousel now uses pure CSS animation - no JavaScript controls needed
