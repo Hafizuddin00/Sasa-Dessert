@@ -111,7 +111,76 @@ nav {
     }
 }
 
-/* Gradient animation for backgrounds */
+/* Wave Border Animations */
+.wave-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23FFFACD'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23FFFACD'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23FFFACD'/%3E%3C/svg%3E") repeat-x;
+    background-size: 1200px 60px;
+    animation: wave-animation 15s ease-in-out infinite;
+    z-index: 1;
+}
+
+.wave-border-top {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-border-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23FFF8DC'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23FFF8DC'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23FFF8DC'/%3E%3C/svg%3E") repeat-x;
+    background-size: 1200px 60px;
+    animation: wave-animation-reverse 18s ease-in-out infinite;
+    transform: rotate(180deg);
+    z-index: 1;
+}
+
+@keyframes wave-animation {
+    0%, 100% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes wave-animation-reverse {
+    0%, 100% {
+        transform: rotate(180deg) translateX(0px);
+    }
+    50% {
+        transform: rotate(180deg) translateX(50px);
+    }
+}
+
+/* Chocolate Wave Border */
+.chocolate-wave-border::after {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%238B4513'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%238B4513'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%238B4513'/%3E%3C/svg%3E") repeat-x;
+    animation: wave-animation-slow 20s ease-in-out infinite;
+}
+
+@keyframes wave-animation-slow {
+    0%, 100% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-30px);
+    }
+}
 @keyframes gradient-shift {
     0%, 100% {
         background-position: 0% 50%;
@@ -289,43 +358,6 @@ nav {
     background: #FFFACD;
     position: relative;
     overflow: hidden;
-}
-
-/* Animated background for cakes section */
-.cakes-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(222, 184, 135, 0.1) 0%, transparent 50%);
-    animation: background-shift 25s ease-in-out infinite;
-    z-index: 0;
-}
-
-@keyframes background-shift {
-    0%, 100% { 
-        background: 
-            radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, rgba(222, 184, 135, 0.1) 0%, transparent 50%);
-    }
-    33% { 
-        background: 
-            radial-gradient(circle at 70% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 30% 80%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 90% 40%, rgba(222, 184, 135, 0.12) 0%, transparent 50%);
-    }
-    66% { 
-        background: 
-            radial-gradient(circle at 50% 90%, rgba(139, 69, 19, 0.12) 0%, transparent 50%),
-            radial-gradient(circle at 10% 40%, rgba(255, 182, 193, 0.18) 0%, transparent 50%),
-            radial-gradient(circle at 60% 20%, rgba(222, 184, 135, 0.08) 0%, transparent 50%);
-    }
 }
 
 .cakes-section h2 {
@@ -664,51 +696,24 @@ nav {
 
 /* Feedback Section */
 .feedback-section {
-    padding: 80px 0;
+    padding: 120px 0 80px 0;
     background: linear-gradient(135deg, #FFF8DC 0%, #FFFACD 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Animated floating elements for feedback section */
 .feedback-section::before {
     content: '';
     position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(139, 69, 19, 0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float-up-down 18s ease-in-out infinite;
-    z-index: 0;
-}
-
-.feedback-section::after {
-    content: '';
-    position: absolute;
-    bottom: -150px;
-    right: -150px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255, 182, 193, 0.25) 0%, transparent 60%);
-    border-radius: 50%;
-    animation: float-diagonal 22s ease-in-out infinite reverse;
-    z-index: 0;
-}
-
-@keyframes float-up-down {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-50px) rotate(90deg); }
-    50% { transform: translateY(-100px) rotate(180deg); }
-    75% { transform: translateY(-30px) rotate(270deg); }
-}
-
-@keyframes float-diagonal {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(-80px, -60px) scale(1.2); }
-    50% { transform: translate(-40px, -120px) scale(0.8); }
-    75% { transform: translate(-120px, -40px) scale(1.1); }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.3' fill='%23ffffff'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23ffffff'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23ffffff'/%3E%3C/svg%3E") repeat-x;
+    background-size: 1200px 60px;
+    animation: wave-animation 16s ease-in-out infinite;
+    transform: rotate(180deg);
+    z-index: 1;
 }
 
 .feedback-section h2 {
@@ -732,11 +737,14 @@ nav {
 .testimonial-card {
     background: white;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 0;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     animation: card-float 6s ease-in-out infinite;
+    height: 300px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .testimonial-card:nth-child(2n) {
@@ -758,13 +766,16 @@ nav {
 }
 
 .customer-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
     overflow: hidden;
-    margin: 0 auto 1.5rem;
-    border: 4px solid #8B4513;
+    margin: 0;
+    border: none;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .customer-photo img {
@@ -772,11 +783,6 @@ nav {
     height: 100%;
     object-fit: cover;
     background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 2rem;
 }
 
 .customer-photo img::after {
@@ -789,33 +795,49 @@ nav {
 }
 
 .testimonial-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(139, 69, 19, 0.95);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
     text-align: center;
+}
+
+.testimonial-card:hover .testimonial-content {
+    opacity: 1;
 }
 
 .stars {
     color: #ffd700;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     letter-spacing: 2px;
 }
 
 .testimonial-content p {
-    font-style: italic;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: white;
 }
 
 .testimonial-content h4 {
-    color: #333;
-    font-size: 1.3rem;
+    color: white;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
 
 .customer-title {
-    color: #8B4513;
-    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
@@ -853,44 +875,6 @@ nav {
     background: #DEB887;
     position: relative;
     overflow: hidden;
-}
-
-/* Animated wave-like background for contact section */
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        linear-gradient(45deg, transparent 40%, rgba(139, 69, 19, 0.1) 50%, transparent 60%),
-        linear-gradient(-45deg, transparent 40%, rgba(255, 182, 193, 0.15) 50%, transparent 60%);
-    animation: wave-movement 20s ease-in-out infinite;
-    z-index: 0;
-}
-
-@keyframes wave-movement {
-    0%, 100% { 
-        background: 
-            linear-gradient(45deg, transparent 40%, rgba(139, 69, 19, 0.1) 50%, transparent 60%),
-            linear-gradient(-45deg, transparent 40%, rgba(255, 182, 193, 0.15) 50%, transparent 60%);
-    }
-    25% { 
-        background: 
-            linear-gradient(60deg, transparent 35%, rgba(139, 69, 19, 0.15) 55%, transparent 65%),
-            linear-gradient(-30deg, transparent 35%, rgba(255, 182, 193, 0.1) 55%, transparent 65%);
-    }
-    50% { 
-        background: 
-            linear-gradient(30deg, transparent 45%, rgba(139, 69, 19, 0.08) 45%, transparent 55%),
-            linear-gradient(-60deg, transparent 45%, rgba(255, 182, 193, 0.18) 45%, transparent 55%);
-    }
-    75% { 
-        background: 
-            linear-gradient(75deg, transparent 38%, rgba(139, 69, 19, 0.12) 52%, transparent 62%),
-            linear-gradient(-15deg, transparent 38%, rgba(255, 182, 193, 0.12) 52%, transparent 62%);
-    }
 }
 
 .contact-section h2 {
