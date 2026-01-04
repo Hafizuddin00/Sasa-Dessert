@@ -542,8 +542,11 @@ nav {
 .hero-features {
     display: flex;
     justify-content: center;
+    align-items: center; /* Center vertically too */
     gap: 2rem;
     flex-wrap: wrap;
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center the container */
 }
 
 .feature {
@@ -1151,7 +1154,12 @@ footer {
     
     .hero-features {
         flex-direction: column;
+        align-items: center; /* Center items horizontally in column layout */
+        justify-content: center; /* Center items vertically */
         gap: 1rem;
+        width: 100%; /* Full width */
+        margin: 0 auto; /* Center the container */
+        text-align: center; /* Center text content */
     }
     
     .carousel-container {
@@ -2053,6 +2061,14 @@ html {
     margin-bottom: 1rem; /* Reduced from 2rem */
 }
 
+/* Default footer section styling - left aligned for desktop */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left align on desktop */
+    text-align: left; /* Left align text on desktop */
+}
+
 .footer-section h4 {
     color: #8B4513;
     margin-bottom: 0.5rem; /* Reduced from 1rem */
@@ -2087,8 +2103,11 @@ html {
 
 .footer-social {
     display: flex;
+    justify-content: flex-start; /* Left align on desktop */
+    align-items: center;
     gap: 0.5rem; /* Reduced from 1rem */
     margin-top: 0.5rem; /* Reduced from 1rem */
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
 .footer-social a {
@@ -2154,6 +2173,7 @@ html {
 .footer-logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Left align on desktop */
     gap: 0.3rem; /* Reduced from 0.5rem */
     margin-bottom: 0.5rem; /* Reduced from 1rem */
 }
@@ -2282,5 +2302,98 @@ html {
         flex-direction: row !important;
         justify-content: center !important;
         gap: 1rem !important;
+    }
+}
+/* Tablet and small desktop responsive footer */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+        justify-items: center !important;
+        text-align: center !important;
+    }
+    
+    .footer-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .footer-section h4 {
+        text-align: center !important;
+    }
+    
+    .footer-section p {
+        text-align: center !important;
+    }
+    
+    .footer-section ul {
+        text-align: center !important;
+        padding: 0 !important;
+    }
+    
+    .footer-section ul li {
+        text-align: center !important;
+    }
+    
+    .footer-logo {
+        justify-content: center !important;
+    }
+    
+    .footer-social {
+        justify-content: center !important;
+    }
+}
+/* Small screens and mobile responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
+        text-align: center !important;
+        gap: 2rem !important;
+    }
+    
+    .footer-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .footer-section h4 {
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .footer-section p {
+        text-align: center !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .footer-section ul {
+        text-align: center !important;
+        padding: 0 !important;
+        list-style: none !important;
+    }
+    
+    .footer-section ul li {
+        text-align: center !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .footer-section ul li a {
+        text-align: center !important;
+    }
+    
+    .footer-logo {
+        justify-content: center !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .footer-social {
+        justify-content: center !important;
+        margin-top: 1rem !important;
     }
 }
