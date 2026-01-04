@@ -735,3 +735,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start animation
     animateSprinkles();
 });
+// Background Music Control
+document.addEventListener('DOMContentLoaded', function() {
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    let musicStarted = false;
+    
+    // Function to start music
+    function startBackgroundMusic() {
+        if (!musicStarted && backgroundMusic) {
+            backgroundMusic.muted = false; // Unmute the audio
+            backgroundMusic.play().then(() => {
+                console.log('Background music started');
+                musicStarted = true;
+            }).catch(error => {
+                console.log('Could not start background music:', error);
+            });
+        }
+    }
+    
+    // Start music on first user interaction
+    function handleFirstInteraction() {
+        startBackgroundMusic();
+        // Remove event listeners after first interaction
+        document.removeEventListener('click', handleFirstInteraction);
+        document.removeEventListener('keydown', handleFirstInteraction);
+        document.removeEventListener('touchstart', handleFirstInteraction);
+    }
+    
+    // Add event listeners for user interaction
+    document.addEventListener('click', handleFirstInteraction);
+    document.addEventListener('keydown', handleFirstInteraction);
+    document.addEventListener('touchstart', handleFirstInteraction);
+    
+    // Volume control (optional - set to a comfortable level)
+    if (backgroundMusic) {
+        backgroundMusic.volume = 0.8; // 30% volume
+    }
+});
