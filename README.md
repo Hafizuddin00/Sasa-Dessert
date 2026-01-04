@@ -30,7 +30,6 @@ A beautiful, responsive website for SaSa Dessert, specializing in premium handcr
 ### **Mobile Optimization**
 - *Hamburger Navigation*: Clean mobile menu with smooth slide-in animation
 - *Single Cake Display*: Mobile carousel shows one cake at a time with snap-to-center
-- *2x2 Partner Grid*: Optimized partner section layout for mobile
 - *Responsive Typography*: Smaller, mobile-friendly font sizes
 - *Touch-Friendly Interface*: Proper spacing and button sizes for mobile interaction
 
