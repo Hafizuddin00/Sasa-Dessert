@@ -1,94 +1,120 @@
-# Sasa Dessert - Premium Cake Website
+# SaSa Dessert - Premium Cake Website
 
-A beautiful, responsive static website for selling premium handcrafted cakes. Built with HTML, CSS, and JavaScript for hosting on GitHub Pages.
+A beautiful, responsive website for SaSa Dessert, specializing in premium handcrafted cakes for university students. Built with HTML, CSS, and JavaScript with modern animations and interactive features.
 
-## Features
+## 🍰 Features
 
-- **9 Premium Cake Varieties**: Chocolate, Vanilla, Strawberry, Red Velvet, Lemon, Carrot, Cheesecake, Tiramisu, and Black Forest
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Modern UI**: Clean, professional design with smooth animations
-- **Interactive Elements**: Hover effects, smooth scrolling, and order buttons
-- **GitHub Pages Ready**: Optimized for static hosting
+### **Core Functionality**
+- *9 Premium Cake Varieties*: Kek 4 Darjat, Snowy Cheese, Pandan Cheese, Choc Cheese Parut, Red Velvet Tornado, Chocolate, Cookies & Cream, Choc Lotus Biscoff, and Indulgent Cheese
+- *Responsive Design*: Optimized for desktop, tablet, and mobile devices
+- *Interactive Cake Carousel*: Horizontal scrolling with smooth animations and navigation
+- *Customer Testimonials*: Hover-based feedback section with customer photos
+- *Google Form Integration*: Direct ordering through integrated Google Forms
+- *WhatsApp Integration*: Quick contact and ordering via WhatsApp
 
-## Cake Collection
+### **Visual & Interactive Elements**
+- *Custom Cake Cursors*: Themed cursors (🍰🎂🧁) throughout the website
+- *Floating Cake Stickers*: Animated background decorations
+- *Sprinkle Trail Effect*: Interactive cursor trail with colorful sprinkles
+- *Smooth Animations*: Bouncing cakes, rotating slices, and pulsing hearts
+- *Hover Effects*: Interactive cake descriptions and testimonial reveals
+- *Background Music*: Cooking show theme music with user-activated playback
 
-1. **Rich Chocolate Cake** - $45
-2. **Classic Vanilla Cake** - $40
-3. **Fresh Strawberry Cake** - $50
-4. **Red Velvet Cake** - $48
-5. **Zesty Lemon Cake** - $42
-6. **Spiced Carrot Cake** - $46
-7. **New York Cheesecake** - $52
-8. **Tiramisu Cake** - $55
-9. **Black Forest Cake** - $58
+### **Typography & Design**
+- *Pacifico Font*: Used for all titles and headings
+- *Poppins Font*: Clean, modern font for body text
+- *Cake Shop Color Palette*: Chocolate brown (#8B4513), vanilla cream, strawberry pink, buttercream, and caramel
+- *Blurry White Shadow*: Enhanced title effects
+- *Wave Border Animations*: Decorative section separators
 
-## Deployment to GitHub Pages
+### **Mobile Optimization**
+- *Hamburger Navigation*: Clean mobile menu with smooth slide-in animation
+- *Single Cake Display*: Mobile carousel shows one cake at a time with snap-to-center
+- *2x2 Partner Grid*: Optimized partner section layout for mobile
+- *Responsive Typography*: Smaller, mobile-friendly font sizes
+- *Touch-Friendly Interface*: Proper spacing and button sizes for mobile interaction
 
-1. **Push to GitHub**: Upload all files to your GitHub repository
-2. **Enable GitHub Pages**: 
-   - Go to repository Settings
-   - Scroll to "Pages" section
-   - Select "Deploy from a branch"
-   - Choose "main" branch and "/ (root)" folder
-   - Click Save
-3. **Access your site**: Your website will be available at `https://yourusername.github.io/repository-name`
+## 🎵 Media Assets
 
-## File Structure
+### **Images**
+- `images/1.png` to `images/9.png` - Cake product photos
+- `images/Picture1.jpg` to `images/Picture11.png` - Team member photos
+- `images/feedback1.jpeg` to `images/feedback3.jpeg` - Customer testimonial photos
+- `images/Logo.png` - Business logo and favicon
+- `images/cake-background.jpeg` - Hero section background
+- Partner emblems: `mumheritage-emblem.png`, `Google-emblem.webp`, `RHB-emblem.png`, `WhatsApp-Emblem.png`
+- Social media icons: `facebook.png`, `instagram.png`, `tiktok.png`, `whatsapp.png`
+
+### **Audio**
+- `sound/Cooking-Show-chosic.com_.mp3` - Background music (loops automatically after user interaction)
+
+## 🛠 File Structure
 
 ```
-├── index.html          # Main HTML file
-├── styles.css          # CSS styling
-├── script.js           # JavaScript functionality
-├── _config.yml         # GitHub Pages configuration
-├── images/             # Folder for cake images
-└── README.md           # This file
+├── index.html              # Main HTML file
+├── styles.css              # CSS styling with animations
+├── script.js               # JavaScript functionality
+├── _config.yml             # GitHub Pages configuration
+├── README.md               # Documentation
+├── images/                 # Image assets
+│   ├── 1.png - 9.png      # Cake photos
+│   ├── Picture1.jpg - Picture11.png  # Team photos
+│   ├── feedback1-3.jpeg   # Customer photos
+│   ├── Logo.png           # Business logo
+│   ├── cake-background.jpeg # Hero background
+│   └── [partner & social icons]
+└── sound/
+    └── Cooking-Show-chosic.com_.mp3  # Background music
 ```
 
-## Customization
+## 🎨 Customization
 
-### Adding Real Images
-Replace the placeholder cake images in the `images/` folder with actual photos:
-- `chocolate-cake.jpg`
-- `vanilla-cake.jpg`
-- `strawberry-cake.jpg`
-- `red-velvet.jpg`
-- `lemon-cake.jpg`
-- `carrot-cake.jpg`
-- `cheesecake.jpg`
-- `tiramisu.jpg`
-- `black-forest.jpg`
+### **Colors**
+- Primary: `#8B4513` (Chocolate Brown)
+- Secondary: `#FFF8DC` (Vanilla Cream)
+- Accent: `#FFB6C1` (Strawberry Pink)
+- Background: `#FFFACD` (Buttercream)
+- Highlight: `#DEB887` (Caramel)
 
-### Updating Contact Information
-Edit the contact section in `index.html` to include your actual:
-- Phone number
-- Email address
-- Business hours
-- Location (if applicable)
+### **Fonts**
+- Headings: `'Pacifico', cursive`
+- Body: `'Poppins', sans-serif`
 
-### Modifying Prices
-Update cake prices in the `index.html` file within each cake card's price span.
+### **Animations**
+- Floating cake stickers with gentle movement
+- Sprinkle trail following cursor movement
+- Smooth carousel transitions with snap-to-center
+- Hover effects on cakes and testimonials
 
-### Styling Changes
-Customize colors, fonts, and layout in `styles.css`:
-- Primary color: `#e91e63` (pink)
-- Background gradients and hover effects
-- Typography and spacing
+## 💻 Technologies Used
 
-## Technologies Used
+- **HTML5**: Semantic markup and accessibility
+- **CSS3**: Modern styling with Flexbox, Grid, and animations
+- **JavaScript**: Interactive functionality and carousel logic
+- **Google Fonts**: Pacifico and Poppins typography
+- **GitHub Pages**: Static site hosting
 
-- **HTML5**: Semantic markup and structure
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Interactive functionality and animations
-- **GitHub Pages**: Free static site hosting
-
-## Browser Support
+## 📱 Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-- Mobile browsers
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
-## License
+## 🚀 Deployment
+
+This website is optimized for GitHub Pages deployment:
+
+1. Push all files to your GitHub repository
+2. Enable GitHub Pages in repository settings
+3. Select main branch as source
+4. Your site will be available at `https://hafizuddin00.github.io/Sasa-Dessert/`
+
+## 📄 License
 
 This project is open source and available under the MIT License.
+
+---
+
+**SaSa Dessert** - Premium handcrafted cakes made with love and served with passion. 🍰✨
