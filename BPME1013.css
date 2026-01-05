@@ -959,6 +959,8 @@
         padding: 1rem;
         justify-content: flex-start; /* Align items to start for left hamburger */
         gap: 1rem; /* Add gap between hamburger and logo */
+        display: flex !important; /* Ensure flex display */
+        align-items: center; /* Center items vertically */
     }
     
     .mobile-menu-toggle {
@@ -971,6 +973,8 @@
         padding: 0.5rem;
         transition: color 0.3s ease;
         order: 1; /* First item */
+        z-index: 1001; /* Ensure it's above other elements */
+        position: relative; /* Ensure positioning context */
     }
     
     .mobile-menu-toggle:hover {
