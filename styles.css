@@ -91,6 +91,23 @@ nav {
     color: #8B4513;
 }
 
+/* BPME1013 Link Styling - Make it stand out */
+.nav-links a.bpme-link {
+    font-weight: bold;
+    color: #8B4513;
+    background: rgba(139, 69, 19, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a.bpme-link:hover {
+    background: #8B4513;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+}
+
 /* Floating particles animation */
 .floating-particles {
     position: absolute;
@@ -1222,6 +1239,18 @@ footer {
     .nav-links a.active {
         color: #8B4513;
         background: rgba(139, 69, 19, 0.1);
+    }
+    
+    .nav-links a.bpme-link {
+        font-weight: bold;
+        color: #8B4513;
+        background: rgba(139, 69, 19, 0.15);
+    }
+    
+    .nav-links a.bpme-link:hover,
+    .nav-links a.bpme-link.active {
+        background: #8B4513;
+        color: white;
     }
     
     .hero-content h2 {

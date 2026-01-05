@@ -89,6 +89,26 @@
     z-index: 1;
 }
 
+/* Comments Header Styles */
+.comments-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.comments-header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #8B4513;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.comments-header p {
+    color: #666;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
 .team-comments-grid {
     columns: 2; /* Create 2 columns for masonry layout */
     column-gap: 2rem;
@@ -886,6 +906,10 @@
         font-size: 1.8rem;
     }
     
+    .comments-header h2 {
+        font-size: 1.8rem;
+    }
+    
     .photo-categories {
         gap: 0.5rem;
     }
@@ -967,6 +991,24 @@
     color: #666;
     font-style: italic;
 }
+
+/* BPME1013 Link Styling - Make it stand out */
+.nav-links a.bpme-link {
+    font-weight: bold;
+    color: #8B4513;
+    background: rgba(139, 69, 19, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a.bpme-link:hover {
+    background: #8B4513;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+}
+
 /* Mobile Menu Enhancement for BPME1013 */
 @media (max-width: 768px) {
     nav {
@@ -1045,5 +1087,17 @@
     .nav-links a.active {
         color: #8B4513;
         background: rgba(139, 69, 19, 0.1);
+    }
+    
+    .nav-links a.bpme-link {
+        font-weight: bold;
+        color: #8B4513;
+        background: rgba(139, 69, 19, 0.15);
+    }
+    
+    .nav-links a.bpme-link:hover,
+    .nav-links a.bpme-link.active {
+        background: #8B4513;
+        color: white;
     }
 }
