@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPME1013 - Business Progress | SaSa Dessert</title>
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="BPME1013.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop muted>
+        <source src="sound/Cooking-Show-chosic.com_.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>SaSa Dessert</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#cakes">Our Cakes</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#feedback">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="BPME1013.html" class="active">BPME1013</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Cute Cake Stickers -->
+    <div class="cake-stickers">
+        <div class="cake-sticker">🍰</div>
+        <div class="cake-sticker">🎂</div>
+        <div class="cake-sticker">🧁</div>
+        <div class="cake-sticker">🍪</div>
+        <div class="cake-sticker">🍩</div>
+        <div class="cake-sticker">🥧</div>
+    </div>
+
+    <main>
+        <div class="bpme-container">
+            <div class="bpme-header">
+                <h1>BPME1013 - Business Progress</h1>
+                <p>Track our business development journey through team member insights and progress updates. Each team member shares their perspective on our growth and achievements.</p>
+            </div>
+
+            <!-- Photos Section -->
+            <div class="photos-section">
+                <div class="photos-header">
+                    <h2>Our Journey in Pictures</h2>
+                    <p>Capturing moments of growth, teamwork, and sweet success</p>
+                </div>
+                
+                <div class="photo-categories">
+                    <button class="category-btn active" data-category="all">All Photos</button>
+                    <button class="category-btn" data-category="team">Team Moments</button>
+                    <button class="category-btn" data-category="products">Our Products</button>
+                    <button class="category-btn" data-category="events">Events & Milestones</button>
+                    <button class="category-btn" data-category="workspace">Workspace</button>
+                </div>
+
+                <div class="photo-gallery">
+                    <!-- Mixed Photos - All Categories Together -->
+                    <div class="photo-item" data-category="team">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">👥</div>
+                                    <h4>Team Moments</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Building dreams together"</p>
+                                <span class="polaroid-date">Jan 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="products">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🍰</div>
+                                    <h4>Sweet Creations</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Handcrafted with love"</p>
+                                <span class="polaroid-date">Dec 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="events">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🎉</div>
+                                    <h4>Milestone Celebrations</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Every achievement matters"</p>
+                                <span class="polaroid-date">Nov 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="workspace">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🏢</div>
+                                    <h4>Creative Workspace</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Where magic happens"</p>
+                                <span class="polaroid-date">Oct 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="team">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🤝</div>
+                                    <h4>Team Collaboration</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Stronger together"</p>
+                                <span class="polaroid-date">Sep 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="products">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🧁</div>
+                                    <h4>Product Showcase</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Quality in every bite"</p>
+                                <span class="polaroid-date">Aug 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="events">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🏆</div>
+                                    <h4>Success Stories</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Celebrating victories"</p>
+                                <span class="polaroid-date">Jul 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="workspace">
+                        <div class="polaroid-card">
+                            <div class="polaroid-photo">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">💼</div>
+                                    <h4>Behind the Scenes</h4>
+                                </div>
+                            </div>
+                            <div class="polaroid-caption">
+                                <p>"Hard work pays off"</p>
+                                <span class="polaroid-date">Jun 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo Modal -->
+                <div class="photo-modal" id="photoModal">
+                    <div class="modal-content">
+                        <span class="modal-close">&times;</span>
+                        <img class="modal-image" id="modalImage" src="" alt="">
+                        <div class="modal-info">
+                            <h3 id="modalTitle"></h3>
+                            <p id="modalDescription"></p>
+                            <span id="modalDate"></span>
+                        </div>
+                        <div class="modal-nav">
+                            <button class="modal-prev">❮</button>
+                            <button class="modal-next">❯</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-comments-grid">
+                <!-- Team Member 1 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture1.jpg" alt="Muhammad Daniel Haikal" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Muhammad Daniel Haikal</h3>
+                            <p class="role">General Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture2.jpg" alt="Nur Sahira Nabilah" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Nur Sahira Nabilah</h3>
+                            <p class="role">Assistant Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture3.png" alt="Muhammad Hafizuddin" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Muhammad Hafizuddin</h3>
+                            <p class="role">Finance Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture4.jpg" alt="Mohamad Loqmanul Hakim" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Mohamad Loqmanul Hakim</h3>
+                            <p class="role">Operating Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture5.jpg" alt="Sarah Aisyah" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Sarah Aisyah</h3>
+                            <p class="role">Marketing Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture6.jpg" alt="Nurfathiah Atiqah" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Nurfathiah Atiqah</h3>
+                            <p class="role">Advertising Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 7 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture7.jpg" alt="Nur Alia Adriana" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Nur Alia Adriana</h3>
+                            <p class="role">Customer Service</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 8 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture8.png" alt="Mohammed Umair" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Mohammed Umair</h3>
+                            <p class="role">Customer Service Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 9 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture9.png" alt="Farith Shazry" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Farith Shazry</h3>
+                            <p class="role">Assistant Sales Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 10 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture10.jpg" alt="Muhammad Amirul Amsyar" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Muhammad Amirul Amsyar</h3>
+                            <p class="role">Sales Manager</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 11 -->
+                <div class="comment-card">
+                    <div class="member-info">
+                        <div class="member-avatar">
+                            <img src="images/team/Picture11.png" alt="Abdullah Edhah Saleh" class="member-photo">
+                        </div>
+                        <div class="member-details">
+                            <h3>Abdullah Edhah Saleh</h3>
+                            <p class="role">Sales</p>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-to-home">
+                <a href="index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/Logo.png" alt="SaSa Dessert" class="footer-logo-img">
+                        <h4>SaSa Dessert</h4>
+                    </div>
+                    <p>Premium handcrafted cakes made with love and served with passion.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/" target="_blank">
+                            <img src="images/facebook.png" alt="Facebook" class="footer-social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/sasadessert.uum?igsh=dmh3dnpxaGQzYWwx&utm_source=qr" target="_blank">
+                            <img src="images/instagram.png" alt="Instagram" class="footer-social-icon">
+                        </a>
+                        <a href="https://wa.me/601155859451" target="_blank">
+                            <img src="images/whatsapp.png" alt="WhatsApp" class="footer-social-icon">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#cakes">Our Cakes</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#feedback">Reviews</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="BPME1013.html">BPME1013</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>+60 11-5585 9451</p>
+                    <p>sasadessert.uum@gmail.com</p>
+                    <p>Sintok, Kedah, Malaysia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Business Hours</h4>
+                    <p>Friday & Tuesday</p>
+                    <p>Delivery 8:00-9:00 PM</p>
+                    <p><em>Order before delivery days</em></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SaSa Dessert. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="BPME1013.js"></script>
+</body>
+</html>

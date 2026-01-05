@@ -185,59 +185,59 @@ class InfiniteCarousel {
     constructor() {
         this.cakeData = [
             {
-                image: "images/1.png",
+                image: "images/cake/1.png",
                 alt: "Kek 4 Darjat",
                 name: "Kek 4 Darjat",
                 badge: "Bestseller",
                 description: "A layered cake with four levels of flavour and texture, perfect for sharing or special cravings."
             },
             {
-                image: "images/2.png",
+                image: "images/cake/2.png",
                 alt: "Snowy Cheese",
                 name: "Snowy Cheese",
                 description: "Light and fluffy cake topped with smooth cheese and a snowy finish that melts in your mouth."
             },
             {
-                image: "images/3.png",
+                image: "images/cake/3.png",
                 alt: "Pandan Cheese",
                 name: "Pandan Cheese",
                 badge: "Local Favorite",
                 description: "Soft pandan cake with a fragrant aroma, layered with creamy cheese for a balanced sweet and savoury taste."
             },
             {
-                image: "images/4.png",
+                image: "images/cake/4.png",
                 alt: "Choc Cheese Parut",
                 name: "Choc Cheese Parut",
                 description: "Rich chocolate cake covered with grated cheese, combining deep cocoa flavour with a savoury twist."
             },
             {
-                image: "images/5.png",
+                image: "images/cake/5.png",
                 alt: "Red Velvet Tornado",
                 name: "Red Velvet Tornado",
                 badge: "Signature",
                 description: "Moist red velvet cake with a swirl of creamy topping, smooth, slightly tangy, and satisfying."
             },
             {
-                image: "images/6.png",
+                image: "images/cake/6.png",
                 alt: "Chocolate",
                 name: "Chocolate",
                 description: "Classic chocolate cake that is soft, rich, and perfect for true chocolate lovers."
             },
             {
-                image: "images/7.png",
+                image: "images/cake/7.png",
                 alt: "Cookies & Cream",
                 name: "Cookies & Cream",
                 description: "Creamy cake mixed with crunchy cookie bits for a sweet and playful flavour in every bite."
             },
             {
-                image: "images/8.png",
+                image: "images/cake/8.png",
                 alt: "Choc Lotus Biscoff",
                 name: "Choc Lotus Biscoff",
                 badge: "Premium",
                 description: "Chocolate cake layered with Lotus Biscoff spread, giving a caramelised and indulgent taste."
             },
             {
-                image: "images/9.png",
+                image: "images/cake/9.png",
                 alt: "Indulgent Cheese",
                 name: "Indulgent Cheese",
                 description: "Extra creamy cheese cake made for those who love a rich, bold, and satisfying cheese flavour."
@@ -495,57 +495,57 @@ class TeamCarousel {
     constructor() {
         this.teamData = [
             {
-                image: "images/Picture1.jpg",
+                image: "images/team/Picture1.jpg",
                 name: "Muhammad Daniel Haikal",
-                role: "Manager"
+                role: "General Manager"
             },
             {
-                image: "images/Picture2.jpg",
+                image: "images/team/Picture2.jpg",
                 name: "Nur Sahira Nabilah",
                 role: "Assistant Manager"
             },
             {
-                image: "images/Picture3.png",
+                image: "images/team/Picture3.png",
                 name: "Muhammad Hafizuddin",
                 role: "Finance Manager"
             },
             {
-                image: "images/Picture4.jpg",
+                image: "images/team/Picture4.jpg",
                 name: "Mohamad Loqmanul Hakim",
                 role: "Operating Manager"
             },
             {
-                image: "images/Picture5.jpg",
+                image: "images/team/Picture5.jpg",
                 name: "Sarah Aisyah",
                 role: "Marketing Manager"
             },
             {
-                image: "images/Picture6.jpg",
+                image: "images/team/Picture6.jpg",
                 name: "Nurfathiah Atiqah",
                 role: "Advertising Manager"
             },
             {
-                image: "images/Picture7.jpg",
+                image: "images/team/Picture7.jpg",
                 name: "Nur Alia Adriana",
                 role: "Customer Service"
             },
             {
-                image: "images/Picture8.png",
+                image: "images/team/Picture8.png",
                 name: "Mohammed Umair",
                 role: "Customer Service Manager"
             },
             {
-                image: "images/Picture9.png",
+                image: "images/team/Picture9.png",
                 name: "Farith Shazry",
                 role: "Assistant Sales Manager"
             },
             {
-                image: "images/Picture10.jpg",
+                image: "images/team/Picture10.jpg",
                 name: "Muhammad Amirul Amsyar",
                 role: "Sales Manager"
             },
             {
-                image: "images/Picture11.png",
+                image: "images/team/Picture11.png",
                 name: "Abdullah Edhah Saleh",
                 role: "Sales"
             }
