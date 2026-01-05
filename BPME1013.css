@@ -90,10 +90,24 @@
 }
 
 .team-comments-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    columns: 2; /* Create 2 columns for masonry layout */
+    column-gap: 2rem;
     margin-bottom: 3rem;
+}
+
+/* For larger screens, use 3 columns */
+@media (min-width: 1200px) {
+    .team-comments-grid {
+        columns: 3;
+    }
+}
+
+/* For smaller screens, use 1 column */
+@media (max-width: 768px) {
+    .team-comments-grid {
+        columns: 1;
+        column-gap: 0;
+    }
 }
 
 .comment-card {
@@ -105,6 +119,12 @@
     border-left: 4px solid #8B4513;
     position: relative;
     overflow: hidden;
+    height: fit-content; /* Allow natural height based on content */
+    min-height: auto; /* Remove any minimum height constraints */
+    break-inside: avoid; /* Prevent cards from breaking across columns */
+    margin-bottom: 2rem; /* Add space between cards in the same column */
+    display: inline-block; /* Required for column layout */
+    width: 100%; /* Take full width of the column */
 }
 
 .comment-card::before {
@@ -183,6 +203,8 @@
     line-height: 1.6;
     color: #333;
     transition: all 0.3s;
+    height: auto; /* Allow natural height expansion */
+    min-height: auto; /* Remove minimum height constraints */
 }
 
 .comment-content p {
@@ -305,11 +327,6 @@
         font-size: 1rem;
     }
     
-    .team-comments-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
     .comment-card {
         padding: 1.5rem;
     }
@@ -335,9 +352,6 @@
 
 /* Tablet responsive */
 @media (max-width: 1024px) and (min-width: 769px) {
-    .team-comments-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
     
     .bpme-container {
         padding: 1.5rem;
